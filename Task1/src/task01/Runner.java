@@ -1,3 +1,5 @@
+package task01;
+
 //1. Составить линейную программу, печатающую значение true, если указанное высказывание является истинным,
 // и false — в противном случае:
 //
@@ -25,11 +27,11 @@ public class Runner {
     }
 
     private static boolean execute(String sequence) {
-        int digitSum1,digitSum2;
+        int digitSum1, digitSum2;
         Integer.parseInt(sequence);
-        digitSum1 = Integer.parseInt("" + sequence.charAt(0))+Integer.parseInt("" + sequence.charAt(1));
-        digitSum2 = Integer.parseInt("" + sequence.charAt(2))+Integer.parseInt("" + sequence.charAt(3));
-        if (digitSum1!=digitSum2){
+        digitSum1 = Integer.parseInt("" + sequence.charAt(0)) + Integer.parseInt("" + sequence.charAt(1));
+        digitSum2 = Integer.parseInt("" + sequence.charAt(2)) + Integer.parseInt("" + sequence.charAt(3));
+        if (digitSum1 != digitSum2) {
             return false;
         }
         return true;
