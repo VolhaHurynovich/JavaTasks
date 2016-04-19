@@ -12,11 +12,7 @@ public class Runner01 {
                 System.out.println("Enter any number (4 figures). For example: 3443");
                 System.exit(0);
             }
-            if (execute(args[0])) {
-                System.out.println("true");
-            } else {
-                System.out.println("false");
-            }
+            System.out.println(execute(args[0]));
         } catch (NumberFormatException e) {
             System.out.println("NumberFormatException. It is not a number. Enter any number (4 figures). For example: 3443");
         } catch (Exception e) {
