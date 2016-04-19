@@ -18,7 +18,7 @@ public class Runner {
                 System.out.println("false");
             }
         } catch (NumberFormatException e) {
-            System.out.println("It is not a number. Enter any number (4 figures). For example: 3443");
+            System.out.println("NumberFormatException. It is not a number. Enter any number (4 figures). For example: 3443");
         } catch (Exception e) {
             System.out.println(e);
         } catch (Error e) {
