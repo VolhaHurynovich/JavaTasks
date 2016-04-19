@@ -4,7 +4,7 @@ package task02;
 //  args[0] = a
 //  args[1] = b
 //  args[2] = c
-public class Runner {
+public class Runner02 {
     public static void main(String[] args) {
         try {
             if (args.length != 3) {

@@ -5,7 +5,7 @@ package task01;
 //
 //        Сумма двух первых цифр заданного четырехзначного числа
 //        равна сумме двух его последних цифр.
-public class Runner {
+public class Runner01 {
     public static void main(String[] args) {
         try {
             if (args[0].length() != 4) {
