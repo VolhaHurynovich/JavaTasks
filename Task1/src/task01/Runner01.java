@@ -9,7 +9,7 @@ import java.io.IOException;
 //        равна сумме двух его последних цифр.
 public class Runner01 {
     public static void main(String[] args) throws NumberFormatException, IOException {
-        String str = "5762";
+        String str = args[0];
         ClassForTask01 myClass = new ClassForTask01();
         System.out.println(myClass.checkCondition(str));
 
