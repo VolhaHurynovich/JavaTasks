@@ -1,4 +1,8 @@
 package by.epam.mypackage.command;
 
-public class Command {
+import by.epam.mypackage.bean.Request;
+import by.epam.mypackage.bean.Response;
+
+public interface Command {
+    Response execute(Request request);
 }
