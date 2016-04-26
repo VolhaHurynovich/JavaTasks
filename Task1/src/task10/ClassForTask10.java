@@ -4,11 +4,11 @@ import java.io.IOException;
 
 //10. Сформировать квадратную матрицу порядка n по заданному образцу(n - четное)
 public class ClassForTask10 {
-    private static final String NOT_EVEN_NUMBER = "n is not even number";
-    private static final String CONST_K_LESS_0 = "Enter n > 0";
+    public static final String NOT_EVEN_NUMBER = "n is not even number";
+    public static final String CONST_K_LESS_0 = "Enter n > 0";
     public String message = "";
 
-    private boolean checkN(int n) {
+    public boolean checkN(int n) {
         if (n < 0) {
             message = CONST_K_LESS_0;
             return false;

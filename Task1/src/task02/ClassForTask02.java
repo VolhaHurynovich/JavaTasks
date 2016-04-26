@@ -4,11 +4,11 @@ import java.io.IOException;
 
 //Вычислить значение выражения по формуле (все переменные принимают действительные значения)
 public class ClassForTask02 {
-    private static final String DIVISION_BY_ZERO = "Division by zero";
-    private static final String SQRT_FROM_NEGATIV_NUMBER = "Sqrt from negative number";
+    public static final String DIVISION_BY_ZERO = "Division by zero";
+    public static final String SQRT_FROM_NEGATIV_NUMBER = "Sqrt from negative number";
     public String message = "";
 
-    private boolean checkNumbers(double a, double b, double c) {
+    public boolean checkNumbers(double a, double b, double c) {
         if ((a == 0) || (b == 0)) {
             message = DIVISION_BY_ZERO;
             return false;

@@ -5,11 +5,11 @@ import java.io.IOException;
 //9. Заданы два одномерных массива с различным количеством элементов и натуральное число k.
 //        Объединить их в один массив, включив второй массив между k-м и (k+1) - м элементами первого.
 public class ClassForTask09 {
-    private static final String CONST_K_LESS_0 = "Enter k > 0";
-    private static final String CONST_K_BIGGER_ARRAY_LENGTH = "Enter k <= array1 length";
+    public static final String CONST_K_LESS_0 = "Enter k > 0";
+    public static final String CONST_K_BIGGER_ARRAY_LENGTH = "Enter k <= array1 length";
     public String message = "";
 
-    private boolean chekK(double[] array1, int k) {
+    public boolean chekK(double[] array1, int k) {
         if (k < 0) {
             message = CONST_K_LESS_0;
             return false;

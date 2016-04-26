@@ -6,11 +6,11 @@ import java.io.IOException;
 //        с шагом h. Результат представить в виде таблицы, первый столбец которой
 //        – значения  аргумента, второй - соот¬ветствующие значения функции
 public class ClassForTask07 {
-    private static final String B_LESS_A = "Enter three numbers (a b h), where a < b. For example: 5 7 0.1";
-    private static final String H_LESS_ZERO = "Enter h > 0";
+    public static final String B_LESS_A = "Enter three numbers (a b h), where a < b. For example: 5 7 0.1";
+    public static final String H_LESS_ZERO = "Enter h > 0";
     public String message = "";
 
-    private boolean checkNumbers(double a, double b, double h) {
+    public boolean checkNumbers(double a, double b, double h) {
         if (a > b) {
             message = B_LESS_A;
             return false;
@@ -38,7 +38,7 @@ public class ClassForTask07 {
         return res;
     }
 
-    private static double calculation(double x) {
+    public static double calculation(double x) {
         return (Math.pow(Math.sin(x), 2) - Math.cos(2 * x));
     }
 

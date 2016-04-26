@@ -9,11 +9,11 @@ package task01;
 import java.io.IOException;
 
 public class ClassForTask01 {
-    private static final String NOT_NUMBER = "It is not a number. Enter any number (4 figures). For example: 3443";
-    private static final String NOT_4_FIGURES = "Enter any number (4 figures). For example: 3443";
+    public static final String NOT_NUMBER = "It is not a number. Enter any number (4 figures). For example: 3443";
+    public static final String NOT_4_FIGURES = "Enter any number (4 figures). For example: 3443";
     public String message = "";
 
-    private boolean checkNumber(String sequence) {
+    public boolean checkNumber(String sequence) {
         if (!isNumber(sequence)) {
             message = NOT_NUMBER;
             return false;

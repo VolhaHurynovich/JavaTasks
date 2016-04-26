@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+    <test name="SampleTest">
+        <classes>
+            <class name="task01.TestClassForTask01"/>
+
+        </classes>
+    </test>
+</suite>

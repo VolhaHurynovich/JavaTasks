@@ -2,14 +2,14 @@ package task06;
 
 //6. Написать программу нахождения суммы большего и меньшего из трех чисел.
 public class ClassForTask06 {
-    private double findMin(double a, double b) {
+    public double findMin(double a, double b) {
         if (b < a) {
             return b;
         }
         return a;
     }
 
-    private double findMax(double a, double b) {
+    public double findMax(double a, double b) {
         if (b < a) {
             return a;
         }
