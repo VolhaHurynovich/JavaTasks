@@ -38,11 +38,12 @@ public class Note {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
 
-        Note note = (Note) o;
+        Note note = (Note) obj;
 
         if (text != null ? !text.equals(note.text) : note.text != null) return false;
         if (date != null ? !date.equals(note.date) : note.date != null) return false;
@@ -52,16 +53,13 @@ public class Note {
 
     @Override
     public int hashCode() {
-        int result = text != null ? text.hashCode() : 0;
+        int result = (text != null ? text.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return "Note{" +
-                "text='" + text + '\'' +
-                ", date=" + date +
-                '}';
+        return getClass().getName()+ "@" + "text: '" + text  + ", date: " + date;
     }
 }

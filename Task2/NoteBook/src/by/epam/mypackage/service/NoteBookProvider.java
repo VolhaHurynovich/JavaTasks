@@ -1,15 +1,27 @@
 package by.epam.mypackage.service;
 
-public class NoteBookProvider {
-    private static NoteBookProvider instance = null;
+import by.epam.mypackage.bean.NoteBook;
 
-    protected NoteBookProvider() {
+public class NoteBookProvider {
+    private static NoteBook instance = null;
+
+    private NoteBookProvider() {
     }
 
-    public static NoteBookProvider getInstance() {
-        if(instance == null) {
-            instance = new NoteBookProvider();
+    public static NoteBook getInstance() {
+        if (instance == null) {
+            instance = new NoteBook();
         }
         return instance;
     }
+
+    public static NoteBook getNoteBook() {
+        instance = new NoteBook();
+        return instance;
+    }
+
+    public static void setNoteBook(NoteBook noteBook) {
+        instance = noteBook;
+    }
 }
+

@@ -1,19 +1,12 @@
 package by.epam.mypackage.bean;
 
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class NoteBook {
-    private ArrayList<Note> noteList;
+    private List<Note> noteList = new ArrayList<Note>();
 
-    public NoteBook() {
-        this.noteList = null;
-    }
-    public NoteBook(ArrayList<Note> noteList) {
-        this.noteList = noteList;
-    }
-
-    public ArrayList<Note> getNoteList() {
+    public List<Note> getNoteList() {
         return noteList;
     }
 
@@ -25,18 +18,19 @@ public class NoteBook {
         this.noteList = noteList;
     }
 
-    public void addNote(Note note) {
+    public void addNote(Note note)
+    {
         this.noteList.add(note);
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
 
-        NoteBook noteBook = (NoteBook) o;
-
-        return noteList != null ? noteList.equals(noteBook.noteList) : noteBook.noteList == null;
+        NoteBook noteBook = (NoteBook) obj;
+        if (noteList != null ? !noteList.equals(noteBook.noteList) : noteBook.noteList != null) return false;
+        return true;
 
     }
 
@@ -47,8 +41,6 @@ public class NoteBook {
 
     @Override
     public String toString() {
-        return "NoteBook{" +
-                "noteList=" + noteList +
-                '}';
+        return getClass().getName()+ "@" + "noteList: '" + noteList ;
     }
 }
