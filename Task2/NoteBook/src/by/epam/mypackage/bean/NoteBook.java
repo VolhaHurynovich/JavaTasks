@@ -1,10 +1,15 @@
 package by.epam.mypackage.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoteBook {
-    private List<Note> noteList = new ArrayList<Note>();
+public class NoteBook implements Serializable{
+    private List<Note> noteList;
+
+    public NoteBook() {
+        this.noteList = new ArrayList<Note>();
+    }
 
     public List<Note> getNoteList() {
         return noteList;

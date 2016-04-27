@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface NoteBookService {
     boolean addNote(String text, Date date);
-    boolean createNoteBook(NoteBook notebook);
+    void createNoteBook();
     List<Note> searchByText(String text);
     List<Note> searchByDate(Date date);
     List<Note> getNoteBook();

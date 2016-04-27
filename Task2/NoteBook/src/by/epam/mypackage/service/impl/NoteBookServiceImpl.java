@@ -2,6 +2,7 @@ package by.epam.mypackage.service.impl;
 
 import by.epam.mypackage.bean.Note;
 import by.epam.mypackage.bean.NoteBook;
+import by.epam.mypackage.service.NoteBookProvider;
 import by.epam.mypackage.service.NoteBookService;
 
 import java.util.Date;
@@ -15,9 +16,8 @@ public class NoteBookServiceImpl implements NoteBookService{
     }
 
     @Override
-    public boolean createNoteBook(NoteBook notebook) {
-        // TODO: 4/26/2016
-        return false;
+    public void createNoteBook() {
+        NoteBookProvider.getNoteBook();
     }
 
     @Override

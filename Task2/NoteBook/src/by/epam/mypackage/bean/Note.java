@@ -1,20 +1,11 @@
 package by.epam.mypackage.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Note {
+public class Note implements Serializable {
     private String text;
     private Date date;
-
-    public Note() {
-        this.text = "";
-        this.date = new Date();
-    }
-
-    public Note(String text) {
-        this.text = text;
-        this.date = new Date();
-    }
 
     public Note(String text, Date date) {
         this.text = text;
@@ -60,6 +51,6 @@ public class Note {
 
     @Override
     public String toString() {
-        return getClass().getName()+ "@" + "text: '" + text  + ", date: " + date;
+        return getClass().getName() + "@" + "text: '" + text + ", date: " + date;
     }
 }
