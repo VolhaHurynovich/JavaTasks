@@ -6,6 +6,11 @@ public class Response {
     private List<Note> listNote;
     private Note note;
     private String errorMessage;
+
+    public void setListNote(List<Note> listNote) {
+        this.listNote = listNote;
+    }
+
     private String message;
 
 

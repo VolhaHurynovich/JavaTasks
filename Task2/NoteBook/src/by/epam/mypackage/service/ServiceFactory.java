@@ -13,8 +13,6 @@ public class ServiceFactory {
             return factory;
         }
 
-
-
         public NoteBookService getNoteBookService(){
             return noteBookService;
         }

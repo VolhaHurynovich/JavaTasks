@@ -3,6 +3,7 @@ package by.epam.mypackage.service;
 import by.epam.mypackage.bean.Note;
 import by.epam.mypackage.bean.NoteBook;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,6 @@ public interface NoteBookService {
     List<Note> searchByText(String text);
     List<Note> searchByDate(Date date);
     List<Note> getNoteBook();
-    void readFile(String path);
+    void readFile(String path) throws IOException, ClassNotFoundException;
     void writeFile(String path);
 }

@@ -11,19 +11,19 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AddNoteCommand implements Command{
+public class AddNoteCommand implements Command {
 
     @Override
     public Response execute(Request request) {
         Response response = new Response();
 
-        if(request.getCommandName() == null) {
+        if (request.getCommandName() == null) {
             response.setErrorMessage("No command");
             return response;
         }
 
         Date date = new Date();
-        if(request.getDate() != null) {
+        if (request.getDate() != null) {
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             try {
                 date = format.parse(request.getDate());
@@ -34,7 +34,7 @@ public class AddNoteCommand implements Command{
 
         NoteBookService service = ServiceFactory.getInstance().getNoteBookService();
         service.addNote(request.getParameter(), date);
-        response.setMessage("Note is successfully added");
+        response.setMessage("Note added");
         return response;
     }
 }

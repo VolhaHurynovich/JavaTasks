@@ -5,6 +5,10 @@ public class Request {
     private String parameter;
     private String date;
 
+
+    public Request(){
+    }
+
     public Request(String command, String text, String date) {
         this.command = command;
         this.parameter = text;
