@@ -12,12 +12,8 @@ public class ReadFileCommand implements Command {
     @Override
     public Response execute(Request request) {
         Response response = new Response();
-        if(request.getCommandName() == null) {
-            response.setErrorMessage("No command");
-            return response;
-        }
         try {
-            ServiceFactory.getInstance().getNoteBookService().readFile(request.getCommandName());
+            ServiceFactory.getInstance().getNoteBookService().readFile(request.getParameter1());
             response.setMessage("File was read");
             return response;
         } catch (IOException e) {

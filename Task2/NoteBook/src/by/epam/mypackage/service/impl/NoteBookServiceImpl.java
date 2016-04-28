@@ -1,13 +1,13 @@
 package by.epam.mypackage.service.impl;
 
 import by.epam.mypackage.bean.Note;
-import by.epam.mypackage.bean.NoteBook;
 import by.epam.mypackage.dao.DaoFile;
 import by.epam.mypackage.dao.impl.DaoImpl;
 import by.epam.mypackage.service.NoteBookProvider;
 import by.epam.mypackage.service.NoteBookService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,32 +15,40 @@ public class NoteBookServiceImpl implements NoteBookService{
     private DaoFile daoFile = new DaoImpl();
 
     @Override
-    public boolean addNote(String text, Date date) {
-        // TODO: 4/26/2016
-        return false;
+    public void addNote(String text, Date date) {
+        NoteBookProvider.getInstance().addNote(new Note(text, date));
     }
 
     @Override
     public void createNoteBook() {
-        NoteBookProvider.getNoteBook();
+        NoteBookProvider.createNoteBook();
     }
 
     @Override
     public List<Note> searchByText(String text) {
-        // TODO: 4/26/2016
-        return null;
+        List<Note> listNote = new ArrayList<>();
+        for(Note note: NoteBookProvider.getInstance().getNoteList()) {
+            if (note.getText().contains(text)) {
+                listNote.add(note);
+            }
+        }
+        return listNote;
     }
 
     @Override
     public List<Note> searchByDate(Date date) {
-        // TODO: 4/26/2016
-        return null;
+        List<Note> listNote = new ArrayList<Note>();
+        for(Note note: NoteBookProvider.getInstance().getNoteList()) {
+            if (note.getDate().equals(date)) {
+                listNote.add(note);
+            }
+        }
+        return listNote;
     }
 
     @Override
     public List<Note> getNoteBook() {
-        // TODO: 4/26/2016
-        return null;
+        return NoteBookProvider.getInstance().getNoteList();
     }
 
     @Override
@@ -49,8 +57,8 @@ public class NoteBookServiceImpl implements NoteBookService{
     }
 
     @Override
-    public void writeFile(String path) {
-        // TODO: 4/26/2016
+    public void writeFile(String path) throws IOException {
+        daoFile.writeFile(path);
 
     }
 }

@@ -15,7 +15,7 @@ public class NoteBookProvider {
         return instance;
     }
 
-    public static NoteBook getNoteBook() {
+    public static NoteBook createNoteBook() {
         instance = new NoteBook();
         return instance;
     }

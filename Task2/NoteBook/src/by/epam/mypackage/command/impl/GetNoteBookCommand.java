@@ -12,7 +12,7 @@ public class GetNoteBookCommand implements Command {
     public Response execute(Request request) {
         Response response = new Response();
         NoteBookConsoleView.print(ServiceFactory.getInstance().getNoteBookService().getNoteBook());
-        response.setMessage("NoteBook on console");
+        response.setMessage("NoteBook is shown on console");
         return response;
     }
 }

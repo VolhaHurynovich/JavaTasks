@@ -17,23 +17,18 @@ public class AddNoteCommand implements Command {
     public Response execute(Request request) {
         Response response = new Response();
 
-        if (request.getCommandName() == null) {
-            response.setErrorMessage("No command");
-            return response;
-        }
-
         Date date = new Date();
-        if (request.getDate() != null) {
+        if (request.getParameter2() != null) {
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             try {
-                date = format.parse(request.getDate());
+                date = format.parse(request.getParameter2());
             } catch (ParseException e) {
                 response.setErrorMessage("Date is wrong");
             }
         }
 
         NoteBookService service = ServiceFactory.getInstance().getNoteBookService();
-        service.addNote(request.getParameter(), date);
+        service.addNote(request.getParameter1(), date);
         response.setMessage("Note added");
         return response;
     }

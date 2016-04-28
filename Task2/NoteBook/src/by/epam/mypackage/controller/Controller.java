@@ -13,6 +13,11 @@ public class Controller {
     public Response doAction(Request request){
         String commandName = request.getCommandName();
         Command command = helper.getCommand(commandName);
+        if (command == null) {
+            Response responseHelp = new Response();
+            responseHelp.setErrorMessage("Invalid command");
+            return responseHelp;
+        }
         Response response = command.execute(request);
         return response;
     }

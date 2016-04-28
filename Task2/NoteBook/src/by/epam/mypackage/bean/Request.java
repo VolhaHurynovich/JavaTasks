@@ -2,8 +2,8 @@ package by.epam.mypackage.bean;
 
 public class Request {
     private String command;
-    private String parameter;
-    private String date;
+    private String parameter1;
+    private String parameter2;
 
 
     public Request(){
@@ -11,32 +11,32 @@ public class Request {
 
     public Request(String command, String text, String date) {
         this.command = command;
-        this.parameter = text;
-        this.date = date;
+        this.parameter1 = text;
+        this.parameter2 = date;
     }
 
     public String getCommandName() {
         return command;
     }
 
-    public void setCommand(String command) {
+    public void setCommandName(String command) {
         this.command = command;
     }
 
-    public String getParameter() {
-        return parameter;
+    public String getParameter1() {
+        return parameter1;
     }
 
-    public void setParameter(String parameter1) {
-        this.parameter = parameter;
+    public void setParameter1(String parameter1) {
+        this.parameter1 = parameter1;
     }
 
-    public String getDate() {
-        return date;
+    public String getParameter2() {
+        return parameter2;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setParameter2(String parameter2) {
+        this.parameter2 = parameter2;
     }
 
 

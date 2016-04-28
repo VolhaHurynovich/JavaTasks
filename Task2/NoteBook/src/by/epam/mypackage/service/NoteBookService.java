@@ -8,11 +8,11 @@ import java.util.Date;
 import java.util.List;
 
 public interface NoteBookService {
-    boolean addNote(String text, Date date);
+    void addNote(String text, Date date);
     void createNoteBook();
-    List<Note> searchByText(String text);
-    List<Note> searchByDate(Date date);
     List<Note> getNoteBook();
     void readFile(String path) throws IOException, ClassNotFoundException;
-    void writeFile(String path);
+    List<Note> searchByText(String text);
+    List<Note> searchByDate(Date date);
+    void writeFile(String path) throws IOException;
 }
