@@ -30,11 +30,17 @@ public class NoteBook implements Serializable{
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
 
         NoteBook noteBook = (NoteBook) obj;
-        if (noteList != null ? !noteList.equals(noteBook.noteList) : noteBook.noteList != null) return false;
+        if (noteList != null ? !noteList.equals(noteBook.noteList) : noteBook.noteList != null){
+            return false;
+        }
         return true;
 
     }

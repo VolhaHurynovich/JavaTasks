@@ -25,6 +25,8 @@ public class CommandHelper {
         try {
             CommandName command = CommandName.valueOf(commandName);
             executeCommand = commands.get(command);
+        } catch (IllegalArgumentException e) {
+            return null;
         } catch (Exception e) {
             return null;
         }

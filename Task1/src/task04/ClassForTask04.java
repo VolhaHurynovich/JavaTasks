@@ -14,7 +14,7 @@ public class ClassForTask04 {
     public static final int Y1_FOR_AREA2 = 0;
     public static final int Y2_FOR_AREA2 = -4;
 
-    public boolean isPointInTheArea(double x, double y) {
+    public static boolean isPointInTheArea(double x, double y) {
         if (((x >= X1_FOR_AREA1) && (x <= X2_FOR_AREA1) && (y >= Y2_FOR_AREA1) && (y <= Y1_FOR_AREA1)) || ((x >= X1_FOR_AREA2) && (x <= X2_FOR_AREA2) && (y >= Y1_FOR_AREA2) && (y <= Y2_FOR_AREA2))) {
             return true;
         }

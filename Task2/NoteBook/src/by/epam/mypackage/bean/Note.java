@@ -30,14 +30,24 @@ public class Note implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
 
         Note note = (Note) obj;
 
-        if (text != null ? !text.equals(note.text) : note.text != null) return false;
-        if (date != null ? !date.equals(note.date) : note.date != null) return false;
+        if (text != null ? !text.equals(note.text) : note.text != null) {
+            return false;
+        }
+        if (date != null ? !date.equals(note.date) : note.date != null){
+            return false;
+        }
         return true;
 
     }
