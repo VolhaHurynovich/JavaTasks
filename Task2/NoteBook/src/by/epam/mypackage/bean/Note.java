@@ -45,7 +45,7 @@ public class Note implements Serializable {
         if (text != null ? !text.equals(note.text) : note.text != null) {
             return false;
         }
-        if (date != null ? !date.equals(note.date) : note.date != null){
+        if (date != null ? !date.equals(note.date) : note.date != null) {
             return false;
         }
         return true;

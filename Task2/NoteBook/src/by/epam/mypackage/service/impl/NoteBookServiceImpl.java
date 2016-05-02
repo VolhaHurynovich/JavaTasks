@@ -1,8 +1,8 @@
 package by.epam.mypackage.service.impl;
 
 import by.epam.mypackage.bean.Note;
+import by.epam.mypackage.dao.DaoFactory;
 import by.epam.mypackage.dao.DaoFile;
-import by.epam.mypackage.dao.impl.DaoImpl;
 import by.epam.mypackage.service.NoteBookProvider;
 import by.epam.mypackage.service.NoteBookService;
 
@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 public class NoteBookServiceImpl implements NoteBookService{
-    private DaoFile daoFile = new DaoImpl();
+    private DaoFile daoFile = DaoFactory.getInstance().getDaoImpl();
 
     @Override
     public void addNote(String text, Date date) {
