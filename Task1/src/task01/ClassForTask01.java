@@ -16,15 +16,15 @@ public class ClassForTask01 {
         return true;
     }
 
-    public static boolean checkLenght(String sequence) throws Exception {
+    public static boolean checkLength(String sequence) throws ArrayIndexOutOfBoundsException {
         if (sequence.length() != COUNT) {
-            throw new Exception("Enter any number (4 figures)");
+            throw new ArrayIndexOutOfBoundsException("Enter any number (4 figures)");
         }
         return true;
     }
 
     public static boolean isNumber(String str) {
-        if (str == null || str.isEmpty()){
+        if (str == null || str.isEmpty()) {
             return false;
         }
         for (int i = 0; i < str.length(); i++) {
@@ -35,8 +35,8 @@ public class ClassForTask01 {
         return true;
     }
 
-    public static boolean checkCondition(String sequence) throws NumberFormatException, Exception {
-        if (checkNumber(sequence) && checkLenght(sequence)) {
+    public static boolean checkCondition(String sequence) throws NumberFormatException, ArrayIndexOutOfBoundsException {
+        if (checkNumber(sequence) && checkLength(sequence)) {
             int digitSum1, digitSum2;
             digitSum1 = Integer.parseInt("" + sequence.charAt(0)) + Integer.parseInt("" + sequence.charAt(1));
             digitSum2 = Integer.parseInt("" + sequence.charAt(2)) + Integer.parseInt("" + sequence.charAt(3));

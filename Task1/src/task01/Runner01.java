@@ -5,10 +5,10 @@ package task01;
 //
 //        Сумма двух первых цифр заданного четырехзначного числа
 //        равна сумме двух его последних цифр.
-public class Runner01 {
-    public static void main(String[] args) throws Exception {
-        String str = "4444";
-        System.out.println(ClassForTask01.checkCondition(str));
 
+public class Runner01 {
+    public static void main(String[] args) throws NumberFormatException, ArrayIndexOutOfBoundsException {
+        String str = "4474";
+        System.out.println(ClassForTask01.checkCondition(str));
     }
 }
