@@ -13,7 +13,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class NoteBookServiceImplTest {
     private NoteBookServiceImpl noteBookServiceImpl = new NoteBookServiceImpl();
     @BeforeMethod
-    public void beforeTest() {
+    public void beforeMethod() {
         NoteBook noteBook = new NoteBook();
         noteBook.addNote(new Note("note 1",new Date()));
         noteBook.addNote(new Note("note 2", new Date("2015/02/03")));
@@ -23,7 +23,7 @@ public class NoteBookServiceImplTest {
     }
 
     @AfterMethod
-    public void afterTest() {
+    public void afterMethod() {
         NoteBookProvider.createNoteBook();
     }
     @DataProvider(name = "SearchByText")

@@ -4,7 +4,7 @@ package task09;
 //        Объединить их в один массив, включив второй массив между k-м и (k+1) - м элементами первого.
 
 public class Runner09 {
-    public static void main(String[] args) throws ArithmeticException, NumberFormatException, ArrayIndexOutOfBoundsException  {
+    public static void main(String[] args) {
         double[] array1 = {1, 2, 3, 4, 5, 6};
         double[] array2 = {10, 20, 30, 40};
         int k = 5;

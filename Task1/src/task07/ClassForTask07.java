@@ -5,19 +5,19 @@ package task07;
 //        – значения  аргумента, второй - соот¬ветствующие значения функции
 public class ClassForTask07 {
 
-    public static boolean checkAB(double a, double b) throws NumberFormatException {
+    public static boolean checkAB(double a, double b) {
         if (a > b) {
-            throw new NumberFormatException("Enter three numbers (a b h), where a < b. For example: 5 7 0.1");
+            throw new RuntimeException("Enter three numbers (a b h), where a < b. For example: 5 7 0.1");
         }
         return true;
     }
-    public static boolean checkH(double h) throws NumberFormatException {
+    public static boolean checkH(double h) {
         if (h <= 0) {
-            throw new NumberFormatException("Enter h > 0");
+            throw new RuntimeException("Enter h > 0");
         }
         return true;
     }
-    public static double[][] calculationFunction(double a, double b, double h) throws NumberFormatException, ArithmeticException {
+    public static double[][] calculationFunction(double a, double b, double h) {
         if (checkAB(a, b) && checkH(h)) {
             double[][] res = new double[(int) ((b - a) / h) + 1][2];
             double x = a;
@@ -30,7 +30,7 @@ public class ClassForTask07 {
             }
             return res;
         } else {
-            throw new ArithmeticException("Some problem");
+            throw new RuntimeException("Some problem");
         }
     }
 

@@ -4,19 +4,19 @@ package task09;
 //        Объединить их в один массив, включив второй массив между k-м и (k+1) - м элементами первого.
 
 public class ClassForTask09 {
-    public static boolean checkKByZero(double[] array1, int k) throws NumberFormatException, ArrayIndexOutOfBoundsException {
+    public static boolean checkKByZero(double[] array1, int k) {
         if (k < 0) {
-            throw new NumberFormatException("Enter k > 0");
+            throw new RuntimeException("Enter k > 0");
         }
         return true;
     }
-    public static boolean checkByLength(double[] array1, int k) throws ArrayIndexOutOfBoundsException {
+    public static boolean checkByLength(double[] array1, int k) {
         if (k > array1.length) {
-            throw new ArrayIndexOutOfBoundsException("Enter k <= array1 length");
+            throw new RuntimeException("Enter k <= array1 length");
         }
         return true;
     }
-    public static double[] joinArrays(double[] array1, double[] array2, int k) throws ArithmeticException, NumberFormatException, ArrayIndexOutOfBoundsException {
+    public static double[] joinArrays(double[] array1, double[] array2, int k) {
         if (checkKByZero(array1, k) && checkByLength(array1, k)) {
             double[] resultArray = new double[array1.length + array2.length];
             for (int i = 0; i < k; i++) {
@@ -30,7 +30,7 @@ public class ClassForTask09 {
             }
             return resultArray;
         } else {
-            throw new ArithmeticException("Some problem");
+            throw new RuntimeException("Some problem");
         }
     }
 

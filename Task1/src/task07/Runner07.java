@@ -5,7 +5,7 @@ package task07;
 //        – значения  аргумента, второй - соот¬ветствующие значения функции
 
 public class Runner07 {
-    public static void main(String[] args) throws NumberFormatException, ArithmeticException {
+    public static void main(String[] args){
         double a = 0;
         double b = 5;
         double h = 0.1;

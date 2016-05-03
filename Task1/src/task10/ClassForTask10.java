@@ -3,21 +3,21 @@ package task10;
 //10. Сформировать квадратную матрицу порядка n по заданному образцу(n - четное)
 
 public class ClassForTask10 {
-    public static boolean checkNByZero(int n) throws NumberFormatException{
+    public static boolean checkNByZero(int n) {
         if (n < 0) {
-            throw new NumberFormatException("Enter n > 0");
+            throw new RuntimeException("Enter n > 0");
         }
         return true;
     }
 
-    public static boolean checkNByEven(int n) throws NumberFormatException{
+    public static boolean checkNByEven(int n) {
         if (n % 2 != 0) {
-            throw new NumberFormatException("n is not even number");
+            throw new RuntimeException("n is not even number");
         }
         return true;
     }
 
-    public static int[][] createArray(int n) throws NumberFormatException, ArithmeticException {
+    public static int[][] createArray(int n) {
         if (checkNByZero(n) && checkNByEven(n)) {
             int[][] resultArray = new int[n][n];
             for (int i = 0; i < n; i++) {
@@ -31,7 +31,7 @@ public class ClassForTask10 {
             }
             return resultArray;
         } else {
-            throw new ArithmeticException("Some problem");
+            throw new RuntimeException("Some problem");
         }
     }
 

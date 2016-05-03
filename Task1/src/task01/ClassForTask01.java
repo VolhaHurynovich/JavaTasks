@@ -9,16 +9,16 @@ package task01;
 public class ClassForTask01 {
     private static final int COUNT = 4;
 
-    public static boolean checkNumber(String sequence) throws NumberFormatException {
+    public static boolean checkNumber(String sequence) {
         if (!isNumber(sequence)) {
-            throw new NumberFormatException("It is not a number");
+            throw new RuntimeException("It is not a number");
         }
         return true;
     }
 
-    public static boolean checkLength(String sequence) throws ArrayIndexOutOfBoundsException {
+    public static boolean checkLength(String sequence) {
         if (sequence.length() != COUNT) {
-            throw new ArrayIndexOutOfBoundsException("Enter any number (4 figures)");
+            throw new RuntimeException("Enter any number (4 figures)");
         }
         return true;
     }
@@ -35,7 +35,7 @@ public class ClassForTask01 {
         return true;
     }
 
-    public static boolean checkCondition(String sequence) throws NumberFormatException, ArrayIndexOutOfBoundsException {
+    public static boolean checkCondition(String sequence) {
         if (checkNumber(sequence) && checkLength(sequence)) {
             int digitSum1, digitSum2;
             digitSum1 = Integer.parseInt("" + sequence.charAt(0)) + Integer.parseInt("" + sequence.charAt(1));

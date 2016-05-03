@@ -7,7 +7,7 @@ package task01;
 //        равна сумме двух его последних цифр.
 
 public class Runner01 {
-    public static void main(String[] args) throws NumberFormatException, ArrayIndexOutOfBoundsException {
+    public static void main(String[] args) {
         String str = "4474";
         System.out.println(ClassForTask01.checkCondition(str));
     }
