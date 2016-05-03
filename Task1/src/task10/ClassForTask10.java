@@ -2,17 +2,19 @@ package task10;
 
 //10. Сформировать квадратную матрицу порядка n по заданному образцу(n - четное)
 
+import MyException.NewException;
+
 public class ClassForTask10 {
     public static boolean checkNByZero(int n) {
         if (n < 0) {
-            throw new RuntimeException("Enter n > 0");
+            throw new NewException("Enter n > 0");
         }
         return true;
     }
 
     public static boolean checkNByEven(int n) {
         if (n % 2 != 0) {
-            throw new RuntimeException("n is not even number");
+            throw new NewException("n is not even number");
         }
         return true;
     }
@@ -31,7 +33,7 @@ public class ClassForTask10 {
             }
             return resultArray;
         } else {
-            throw new RuntimeException("Some problem");
+            throw new NewException("Some problem");
         }
     }
 

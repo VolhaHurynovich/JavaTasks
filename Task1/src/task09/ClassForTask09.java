@@ -3,16 +3,18 @@ package task09;
 //9. Заданы два одномерных массива с различным количеством элементов и натуральное число k.
 //        Объединить их в один массив, включив второй массив между k-м и (k+1) - м элементами первого.
 
+import MyException.NewException;
+
 public class ClassForTask09 {
     public static boolean checkKByZero(double[] array1, int k) {
         if (k < 0) {
-            throw new RuntimeException("Enter k > 0");
+            throw new NewException("Enter k > 0");
         }
         return true;
     }
     public static boolean checkByLength(double[] array1, int k) {
         if (k > array1.length) {
-            throw new RuntimeException("Enter k <= array1 length");
+            throw new NewException("Enter k <= array1 length");
         }
         return true;
     }
@@ -30,7 +32,7 @@ public class ClassForTask09 {
             }
             return resultArray;
         } else {
-            throw new RuntimeException("Some problem");
+            throw new NewException("Some problem");
         }
     }
 

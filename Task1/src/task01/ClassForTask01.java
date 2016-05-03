@@ -6,19 +6,21 @@ package task01;
 //        Сумма двух первых цифр заданного четырехзначного числа
 //        равна сумме двух его последних цифр.
 
+import MyException.NewException;
+
 public class ClassForTask01 {
     private static final int COUNT = 4;
 
     public static boolean checkNumber(String sequence) {
         if (!isNumber(sequence)) {
-            throw new RuntimeException("It is not a number");
+            throw new NewException("It is not a number");
         }
         return true;
     }
 
     public static boolean checkLength(String sequence) {
         if (sequence.length() != COUNT) {
-            throw new RuntimeException("Enter any number (4 figures)");
+            throw new NewException("Enter any number (4 figures)");
         }
         return true;
     }

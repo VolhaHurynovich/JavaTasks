@@ -8,7 +8,7 @@ package task01;
 
 public class Runner01 {
     public static void main(String[] args) {
-        String str = "4474";
+        String str = "4444";
         System.out.println(ClassForTask01.checkCondition(str));
     }
 }

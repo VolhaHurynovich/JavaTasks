@@ -1,5 +1,7 @@
 package task07;
 
+import MyException.NewException;
+
 //Составить программу для вычисления значений функции  F(x) на отрезке [а, b]
 //        с шагом h. Результат представить в виде таблицы, первый столбец которой
 //        – значения  аргумента, второй - соот¬ветствующие значения функции
@@ -7,13 +9,13 @@ public class ClassForTask07 {
 
     public static boolean checkAB(double a, double b) {
         if (a > b) {
-            throw new RuntimeException("Enter three numbers (a b h), where a < b. For example: 5 7 0.1");
+            throw new NewException("Enter three numbers (a b h), where a < b. For example: 5 7 0.1");
         }
         return true;
     }
     public static boolean checkH(double h) {
         if (h <= 0) {
-            throw new RuntimeException("Enter h > 0");
+            throw new NewException("Enter h > 0");
         }
         return true;
     }
@@ -30,7 +32,7 @@ public class ClassForTask07 {
             }
             return res;
         } else {
-            throw new RuntimeException("Some problem");
+            throw new NewException("Some problem");
         }
     }
 
