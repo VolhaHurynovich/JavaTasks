@@ -1,9 +1,9 @@
 package by.epam.mypackage.controller;
 
+import MyException.CommandException;
 import by.epam.mypackage.command.Command;
 import by.epam.mypackage.command.impl.*;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,15 +20,15 @@ public class CommandHelper {
         commands.put(CommandName.WRITE_FILE, new WriteFileCommand());
     }
 
-    public Command getCommand(String commandName) {
-        Command executeCommand = null;
+    public Command getCommand(String commandName) throws CommandException {
+        Command executeCommand;
         try {
             CommandName command = CommandName.valueOf(commandName);
             executeCommand = commands.get(command);
         } catch (IllegalArgumentException e) {
-            return null;
+            throw new CommandException("IllegalArgumentException - Invalid command");
         } catch (Exception e) {
-            return null;
+            throw new CommandException("Exception - Invalid command");
         }
         return executeCommand;
     }
