@@ -6,7 +6,7 @@ package task01;
 //        Сумма двух первых цифр заданного четырехзначного числа
 //        равна сумме двух его последних цифр.
 
-import myException.NewException;
+import NewException;
 
 public class ClassForTask01 {
     private static final int COUNT = 4;
