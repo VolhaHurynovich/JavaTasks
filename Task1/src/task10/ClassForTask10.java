@@ -2,7 +2,7 @@ package task10;
 
 //10. Сформировать квадратную матрицу порядка n по заданному образцу(n - четное)
 
-import MyException.NewException;
+import myException.NewException;
 
 public class ClassForTask10 {
     public static boolean checkNByZero(int n) {

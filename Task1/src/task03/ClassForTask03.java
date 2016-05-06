@@ -2,7 +2,7 @@ package task03;
 
 //3. Вычислить периметр и площадь прямоугольного треугольника по длинам а и b  двух катетов.
 
-import MyException.NewException;
+import myException.NewException;
 
 public class ClassForTask03 {
     public static boolean checkNumber(double a) {

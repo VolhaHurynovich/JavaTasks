@@ -2,7 +2,7 @@ package task02;
 
 //Вычислить значение выражения по формуле (все переменные принимают действительные значения)
 
-import MyException.NewException;
+import myException.NewException;
 
 public class ClassForTask02 {
 

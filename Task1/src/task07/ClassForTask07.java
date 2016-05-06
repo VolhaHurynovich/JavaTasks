@@ -1,6 +1,6 @@
 package task07;
 
-import MyException.NewException;
+import myException.NewException;
 
 //Составить программу для вычисления значений функции  F(x) на отрезке [а, b]
 //        с шагом h. Результат представить в виде таблицы, первый столбец которой

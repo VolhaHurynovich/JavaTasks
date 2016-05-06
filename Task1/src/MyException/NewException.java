@@ -1,4 +1,4 @@
-package MyException;
+package myException;
 
 public class NewException extends RuntimeException{
     public NewException(String message) {
