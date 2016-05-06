@@ -1,6 +1,6 @@
 package by.epam.mypackage.controller;
 
-import MyException.CommandException;
+import by.epam.mypackage.command.CommandException;
 import by.epam.mypackage.command.Command;
 import by.epam.mypackage.command.impl.*;
 

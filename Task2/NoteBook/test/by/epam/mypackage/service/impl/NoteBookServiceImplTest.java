@@ -3,6 +3,7 @@ package by.epam.mypackage.service.impl;
 import by.epam.mypackage.bean.Note;
 import by.epam.mypackage.bean.NoteBook;
 import by.epam.mypackage.service.NoteBookProvider;
+import by.epam.mypackage.service.ServiceException;
 import org.testng.annotations.*;
 
 import java.util.Date;
@@ -52,19 +53,19 @@ public class NoteBookServiceImplTest {
     }
 
     @Test(dataProvider = "SearchByText")
-    public void testSearchByText(String text, int expected) {
+    public void testSearchByText(String text, int expected) throws ServiceException {
         List<Note> list = noteBookServiceImpl.searchByText(text);
         assertEquals(list.size(), expected);
     }
 
     @Test(dataProvider = "SearchByDate")
-    public void testSearchByDate(Date date, int expected) {
+    public void testSearchByDate(Date date, int expected) throws ServiceException {
         List<Note> list = noteBookServiceImpl.searchByDate(date);
         assertEquals(list.size(), expected);
     }
 
     @Test(dataProvider = "addNote")
-    public void testAddNote(String text, Date date) {
+    public void testAddNote(String text, Date date) throws ServiceException {
         Note note = new Note(text, date);
         noteBookServiceImpl.addNote(text, date);
         assertEquals(note, NoteBookProvider.getInstance().getNoteList().get(NoteBookProvider.getInstance().getNoteList().size() - 1));
@@ -77,7 +78,7 @@ public class NoteBookServiceImplTest {
     }
 
     @Test
-    public void testGetCatalog() {
+    public void testGetCatalog() throws ServiceException {
         assertEquals(NoteBookProvider.getInstance().getNoteList(), noteBookServiceImpl.getNoteBook());
     }
 

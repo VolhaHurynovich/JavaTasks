@@ -1,6 +1,6 @@
 package by.epam.mypackage.controller;
 
-import MyException.CommandException;
+import by.epam.mypackage.command.CommandException;
 import by.epam.mypackage.bean.Request;
 import by.epam.mypackage.bean.Response;
 import by.epam.mypackage.command.Command;
@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 
 public class Controller {
-    private final static Logger LOG = LogManager.getRootLogger();
+    private final static Logger LOG = LogManager.getLogger(Controller.class.getName());
     private final static Logger LOG1 = LogManager.getLogger("MyLogger");
     private final CommandHelper helper = new CommandHelper();
 

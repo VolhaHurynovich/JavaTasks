@@ -1,11 +1,12 @@
 package by.epam.mypackage.command.impl;
 
 
-import MyException.CommandException;
+import by.epam.mypackage.command.CommandException;
 import by.epam.mypackage.bean.Note;
 import by.epam.mypackage.bean.Request;
 import by.epam.mypackage.bean.Response;
 import by.epam.mypackage.command.Command;
+import by.epam.mypackage.service.ServiceException;
 import by.epam.mypackage.service.ServiceFactory;
 import by.epam.mypackage.view.NoteBookConsoleView;
 
@@ -26,6 +27,8 @@ public class SearchByDateCommand implements Command {
             listNote = ServiceFactory.getInstance().getNoteBookService().searchByDate(format.parse(request.getParameter1()));
         } catch (ParseException e) {
             throw new CommandException("Date is wrong",e);
+        }catch (ServiceException e){
+            throw new CommandException("ServiceException",e);
         }
         if (listNote.size() > 0) {
             NoteBookConsoleView.print(listNote);

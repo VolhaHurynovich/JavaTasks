@@ -1,13 +1,13 @@
 package by.epam.mypackage.dao.impl;
 
-import MyException.DaoException;
+import by.epam.mypackage.dao.DaoException;
 import by.epam.mypackage.bean.NoteBook;
-import by.epam.mypackage.dao.DaoFile;
+import by.epam.mypackage.dao.DaoNotebook;
 import by.epam.mypackage.service.NoteBookProvider;
 
 import java.io.*;
 
-public class DaoImpl implements DaoFile {
+public class DaoFileImpl implements DaoNotebook {
     @Override
     public NoteBook readFile(String path) throws DaoException {
         try (FileInputStream fis = new FileInputStream(path);

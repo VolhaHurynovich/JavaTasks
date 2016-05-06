@@ -1,8 +1,8 @@
 package by.epam.mypackage.command.impl;
 
 
-import MyException.CommandException;
-import MyException.ServiceException;
+import by.epam.mypackage.command.CommandException;
+import by.epam.mypackage.service.ServiceException;
 import by.epam.mypackage.bean.Request;
 import by.epam.mypackage.bean.Response;
 import by.epam.mypackage.command.Command;

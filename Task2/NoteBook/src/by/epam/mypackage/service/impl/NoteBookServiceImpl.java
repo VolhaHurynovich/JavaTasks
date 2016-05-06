@@ -1,33 +1,32 @@
 package by.epam.mypackage.service.impl;
 
-import MyException.DaoException;
-import MyException.ServiceException;
+import by.epam.mypackage.dao.DaoException;
+import by.epam.mypackage.service.ServiceException;
 import by.epam.mypackage.bean.Note;
 import by.epam.mypackage.dao.DaoFactory;
-import by.epam.mypackage.dao.DaoFile;
+import by.epam.mypackage.dao.DaoNotebook;
 import by.epam.mypackage.service.NoteBookProvider;
 import by.epam.mypackage.service.NoteBookService;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class NoteBookServiceImpl implements NoteBookService {
-    private DaoFile daoFile = DaoFactory.getInstance().getDaoImpl();
+    private DaoNotebook daoFile = DaoFactory.getInstance().getDaoImpl();
 
     @Override
-    public void addNote(String text, Date date) {
+    public void addNote(String text, Date date) throws ServiceException{
         NoteBookProvider.getInstance().addNote(new Note(text, date));
     }
 
     @Override
-    public void createNoteBook() {
+    public void createNoteBook() throws ServiceException{
         NoteBookProvider.createNoteBook();
     }
 
     @Override
-    public List<Note> searchByText(String text) {
+    public List<Note> searchByText(String text) throws ServiceException{
         List<Note> listNote = new ArrayList<>();
         for (Note note : NoteBookProvider.getInstance().getNoteList()) {
             if (note.getText().contains(text)) {
@@ -38,7 +37,7 @@ public class NoteBookServiceImpl implements NoteBookService {
     }
 
     @Override
-    public List<Note> searchByDate(Date date) {
+    public List<Note> searchByDate(Date date) throws ServiceException{
         List<Note> listNote = new ArrayList<Note>();
         for (Note note : NoteBookProvider.getInstance().getNoteList()) {
             if (note.getDate().equals(date)) {
@@ -49,7 +48,7 @@ public class NoteBookServiceImpl implements NoteBookService {
     }
 
     @Override
-    public List<Note> getNoteBook() {
+    public List<Note> getNoteBook()throws ServiceException  {
         return NoteBookProvider.getInstance().getNoteList();
     }
 

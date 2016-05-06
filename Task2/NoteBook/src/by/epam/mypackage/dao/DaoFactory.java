@@ -1,10 +1,10 @@
 package by.epam.mypackage.dao;
 
-import by.epam.mypackage.dao.impl.DaoImpl;
+import by.epam.mypackage.dao.impl.DaoFileImpl;
 
 public class DaoFactory {
     private static final DaoFactory factory = new DaoFactory();
-    private final DaoImpl daoImpl = new DaoImpl();
+    private final DaoFileImpl daoImpl = new DaoFileImpl();
 
     private DaoFactory() {
     }
@@ -13,7 +13,7 @@ public class DaoFactory {
         return factory;
     }
 
-    public DaoImpl getDaoImpl() {
+    public DaoFileImpl getDaoImpl() {
         return daoImpl;
     }
 }
