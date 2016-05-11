@@ -1,0 +1,5 @@
+package parser.sax;
+
+public enum  MenuTagName {
+    LIBRARY, LIBRARY_NAME, BOOK, GENRE, TITLE, AUTHOR, FIRST_NAME, LAST_NAME, COUNT_PAGE, YEAR_CREATE, COUNTRY
+}

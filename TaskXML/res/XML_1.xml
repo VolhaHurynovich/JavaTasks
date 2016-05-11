@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lib:Library xmlns:lib="http://www.epam.example.org/Library"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.epam.example.org/Library XSD_1.xsd">
+    <lib:Book ID="201">
+        <lib:Genre>Novel</lib:Genre>
+        <lib:Title>Gone with the Wind</lib:Title>
+        <lib:Author>
+            <lib:First-Name>Margaret</lib:First-Name>
+            <lib:Last-Name>Mitchell</lib:Last-Name>
+        </lib:Author>
+        <lib:Count-Page>854</lib:Count-Page>
+        <lib:Year-Create>1936</lib:Year-Create>
+        <lib:Country>USA</lib:Country>
+    </lib:Book>
+    <lib:Book ID="203">
+        <lib:Genre>Novel</lib:Genre>
+        <lib:Title>War and Peace</lib:Title>
+        <lib:Author>
+            <lib:First-Name>Leo</lib:First-Name>
+            <lib:Last-Name>Tolstoy</lib:Last-Name>
+        </lib:Author>
+        <lib:Count-Page>854</lib:Count-Page>
+        <lib:Year-Create>1869</lib:Year-Create>
+        <lib:Country>Russia</lib:Country>
+    </lib:Book>
+    <lib:Library-Name>National Library</lib:Library-Name>
+</lib:Library>

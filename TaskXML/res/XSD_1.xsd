@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <xsd:schema
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                targetNamespace="http://www.epam.example.org/Library"
+                xmlns:tns="http://www.epam.example.org/Library"
+                elementFormDefault="qualified">
+            <xsd:element name="Library" type="tns:MyLibrary"/>
+            <xsd:complexType name="MyLibrary">
+                <xsd:sequence>
+                    <xsd:element name="Book" type="tns:Book" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="Library-Name" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+
+            <xsd:complexType name="Book">
+                <xsd:sequence>
+                    <xsd:element name="Genre" type="tns:Genre"/>
+                    <xsd:element name="Title" type="xsd:string"/>
+                    <xsd:element name="Author" minOccurs="1" maxOccurs="unbounded">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="First-Name" type="xsd:string"/>
+                                <xsd:element name="Last-Name" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="Count-Page" type="xsd:positiveInteger"/>
+                    <xsd:element name="Year-Create" type="xsd:gYear"/>
+                    <xsd:element name="Country" type="tns:Country"/>
+                </xsd:sequence>
+                <xsd:attribute name="ID" type="xsd:positiveInteger"/>
+            </xsd:complexType>
+
+    <xsd:simpleType name="Genre">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Comedy"/>
+            <xsd:enumeration value="Fantasy"/>
+            <xsd:enumeration value="Non-fiction"/>
+            <xsd:enumeration value="Satire"/>
+            <xsd:enumeration value="Tragedy"/>
+            <xsd:enumeration value="Horror"/>
+            <xsd:enumeration value="Tragicomedy"/>
+            <xsd:enumeration value="Novel"/>
+            <xsd:enumeration value="Without category"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="Country">
+        <xsd:restriction
+            base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
