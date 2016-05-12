@@ -70,5 +70,9 @@ public class Book {
         return authors;
     }
 
+    public void addAuthor(Author author) {
+        this.authors.add(author);
+    }
+
 }
 

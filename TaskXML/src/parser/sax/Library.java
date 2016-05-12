@@ -6,6 +6,15 @@ import java.util.List;
 public class Library {
     private List<Book> books = new ArrayList<Book>();
     private String libraryName;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setBooks(List<Book> books) {
         this.books = books;
@@ -21,5 +30,9 @@ public class Library {
 
     public String getLibraryName() {
         return libraryName;
+    }
+
+    public void addBook(Book book) {
+        this.books.add(book);
     }
 }
