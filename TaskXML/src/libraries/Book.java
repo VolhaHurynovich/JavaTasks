@@ -1,4 +1,4 @@
-package parser.sax;
+package libraries;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +27,6 @@ public class Book {
     public void setTitle(String title) {
         this.title = title;
     }
-
-
 
     public void setCountPage(int countPage) {
         this.countPage = countPage;
