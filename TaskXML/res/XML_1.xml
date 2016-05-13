@@ -10,6 +10,10 @@
             <lib:First-Name>Margaret</lib:First-Name>
             <lib:Last-Name>Mitchell</lib:Last-Name>
         </lib:Author>
+        <lib:Author>
+            <lib:First-Name>Margaret1</lib:First-Name>
+            <lib:Last-Name>Mitchell1</lib:Last-Name>
+        </lib:Author>
         <lib:Count-Page>854</lib:Count-Page>
         <lib:Year-Create>1936</lib:Year-Create>
         <lib:Country>USA</lib:Country>
