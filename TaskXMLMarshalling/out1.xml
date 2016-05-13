@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lib:Library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="5" xsi:schemaLocation="http://www.epam.example.org/Library">
+    <lib:Book id="1111">
+        <genre>Novel</genre>
+        <title>My book</title>
+        <authors>
+            <firstName>rrr</firstName>
+            <lastName>ttt</lastName>
+        </authors>
+        <countPage>133</countPage>
+        <yearCreate>1222</yearCreate>
+        <country>Belarus</country>
+    </lib:Book>
+    <libraryName>Moscow library</libraryName>
+</lib:Library>

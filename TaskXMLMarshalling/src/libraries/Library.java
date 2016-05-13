@@ -4,12 +4,11 @@ import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement
+@XmlRootElement(name = "lib:Library")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "lib:Library", propOrder = {"lib:Book","lib:Library-Name"})
 
 public class Library {
-    @XmlElement(type = Book.class, required = true)
+    @XmlElement(name = "lib:Book")
     private List<Book> books = new ArrayList<Book>();
     @XmlElement(required = true)
     private String libraryName;

@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "lib:Author", propOrder = {"lib:First-Name", "lib:Last-Name"})
+@XmlType(name = "lib:Author")
 public class Author {
     @XmlElement(required = true)
     private String firstName;

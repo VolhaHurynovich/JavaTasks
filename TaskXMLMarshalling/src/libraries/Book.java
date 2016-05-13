@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "lib:Book", propOrder = {"lib:Genre","lib:Title","lib:Author","lib:Count-Page","lib:Year-Create","lib:Country"})
+@XmlType(name = "lib:Book")
 public class Book {
     @XmlAttribute(required = true)
     private int id;
