@@ -1,7 +1,5 @@
 package parser.dom;
 
-
-import com.sun.org.apache.xerces.internal.dom.ElementDefinitionImpl;
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import libraries.Author;
 import libraries.Book;
