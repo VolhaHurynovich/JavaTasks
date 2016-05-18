@@ -4,7 +4,6 @@ import by.epam.mypackage.bean.UserInfo;
 import by.epam.mypackage.dao.CommonDao;
 import by.epam.mypackage.dao.DAOException;
 
-import java.sql.SQLException;
 
 public class SQLCommonDao implements CommonDao {
 
