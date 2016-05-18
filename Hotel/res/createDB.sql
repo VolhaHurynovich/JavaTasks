@@ -1,22 +1,16 @@
 CREATE DATABASE IF NOT EXISTS `HOTEL_NEW` ;
 USE HOTEL_NEW;
 
-CREATE TABLE IF NOT EXISTS UserStatus (
-	userStatusId int (10) AUTO_INCREMENT,
-	userstatusName varchar(20) NOT NULL,
-    
-    CONSTRAINT userstatusName_constrain CHECK (resStatus IN ('admin', 'customer')),
-    
-	PRIMARY KEY(userStatusId)
-);
 
 CREATE TABLE IF NOT EXISTS Users (
 	userId int (10) AUTO_INCREMENT,
 	userName varchar(20) NOT NULL,
 	userPassword varchar(15) NOT NULL,
-	userStatusId int (10) NOT NULL,
-	FOREIGN KEY (userStatusId) REFERENCES UserStatus(userStatusId),
-		PRIMARY KEY(userId,userStatusId)
+	userStatusName varchar(20) NOT NULL,
+    
+    CONSTRAINT userStatusName_constrain CHECK (userStatusName IN ('admin', 'customer')),
+	
+    PRIMARY KEY(userId)
 );
 
 CREATE TABLE IF NOT EXISTS UsersInfo (

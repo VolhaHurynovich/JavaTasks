@@ -1,12 +1,8 @@
 USE HOTEL_NEW;
 
-INSERT INTO UserStatus VALUES (1,'admin');
-INSERT INTO UserStatus VALUES (2,'customer');
-
-
-INSERT INTO Users VALUES (1,'customer1','1111',2);
-INSERT INTO Users VALUES (2,'customer2','2222',2);
-INSERT INTO Users VALUES (3,'admin1','admin',1);
+INSERT INTO Users VALUES (1,'customer1','1111','customer');
+INSERT INTO Users VALUES (2,'customer2','2222','customer');
+INSERT INTO Users VALUES (3,'adminName','adminPass','admin');
 
 INSERT INTO UsersInfo VALUES (1,'Ivan','Inanov','MP1345678','Minsk',80297777777);
 INSERT INTO UsersInfo VALUES (2,'Petr','Petrov','MP1345679','Moscow',80297777888);
