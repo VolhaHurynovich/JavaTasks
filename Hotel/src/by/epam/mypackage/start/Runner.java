@@ -1,23 +1,20 @@
 package by.epam.mypackage.start;
 
-import by.epam.mypackage.dao.DatabaseDAO;
-import exception.DAOException;
+
+import by.epam.mypackage.connectionpool.ConnectionPool;
+
+import java.sql.Connection;
+import java.sql.Statement;
 
 
 public class Runner {
     public static void main(String[] args) {
-        createDB();
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
+        Connection con;
+        Statement statement;
+
+
     }
 
-    private static void createDB() {
-        try {
-            String dbName = "MyHotel";
-            DatabaseDAO dbDao = new DatabaseDAO();
-            dbDao.createDatabase(dbName);
-            System.out.println("Database Successfully Created");
-        } catch (DAOException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e);
-        }
-    }
+
 }
