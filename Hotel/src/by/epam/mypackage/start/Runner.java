@@ -11,7 +11,7 @@ public class Runner {
 
     private static void createDB() {
         try {
-            String dbName = "hotel";
+            String dbName = "MyHotel";
             DatabaseDAO dbDao = new DatabaseDAO();
             dbDao.createDatabase(dbName);
             System.out.println("Database Successfully Created");

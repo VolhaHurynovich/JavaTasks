@@ -7,19 +7,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
-    //static reference to itself
-    private static ConnectionFactory instance = new ConnectionFactory();
+    private static ConnectionFactory instance;
     public static final String URL = "jdbc:mysql://localhost:3306";
     public static final String USER = "root";
     public static final String PASSWORD = "123456";
     public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
 
     //private constructor
-    private ConnectionFactory() {
+    private ConnectionFactory() throws DAOException {
         try {
             Class.forName(DRIVER_CLASS);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            throw  new DAOException("ClassNotFoundException in ConnectionFactory.",e);
         }
     }
 
@@ -28,12 +27,13 @@ public class ConnectionFactory {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
-            throw  new DAOException("ERROR: Unable to Connect to Database.",e);
+            throw  new DAOException("SQLException: Unable to Connect to Database.",e);
         }
         return connection;
     }
 
     public static Connection getConnection() throws DAOException {
+        instance = new ConnectionFactory();
         return instance.createConnection();
     }
 }
