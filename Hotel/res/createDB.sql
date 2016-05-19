@@ -3,8 +3,8 @@ USE HOTEL_NEW;
 
 
 CREATE TABLE IF NOT EXISTS Users (
-	userId int (10) AUTO_INCREMENT,
-	userName varchar(20) NOT NULL,
+	userId int (10) NOT NULL AUTO_INCREMENT,
+	userName varchar(20) UNIQUE NOT NULL,
 	userPassword varchar(15) NOT NULL,
 	userStatusName varchar(20) NOT NULL,
     
@@ -14,18 +14,20 @@ CREATE TABLE IF NOT EXISTS Users (
 );
 
 CREATE TABLE IF NOT EXISTS UsersInfo (
-	userId 			int (10) AUTO_INCREMENT,
+	userId 			int (10) NOT NULL,
 	userfirstName	VARCHAR(20) NOT NULL,
     userlastName	VARCHAR(20) NOT NULL,
     userNumPassport	VARCHAR(20) NOT NULL,
     userAdress		VARCHAR(20) NOT NULL,
+    userEmail		VARCHAR(20) NOT NULL,
     userPhone 		VARCHAR(20) NOT NULL, 
 	FOREIGN KEY (userID) REFERENCES Users(userID),
 	PRIMARY KEY(userId)
 );
 
 CREATE TABLE IF NOT EXISTS Rooms (
-	roomId			int (10) NOT NULL,
+	roomId			int (10) NOT NULL AUTO_INCREMENT,
+    roomNumber      VARCHAR(20) NOT NULL, 
 	roomType		VARCHAR(20) DEFAULT 'Standart',
 	roomNumOfAdult	int (5) NOT NULL,
     roomNumOfChild  INTEGER, 

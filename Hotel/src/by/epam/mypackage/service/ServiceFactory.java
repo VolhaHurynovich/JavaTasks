@@ -7,19 +7,20 @@ public class ServiceFactory {
     private static ServiceFactory factory = new ServiceFactory();
 
     private final ClientService clientService = new ClientServiceImpl();
-    private final HotelService  hotelService = new HotelServiceImpl();
+    private final HotelService hotelService = new HotelServiceImpl();
 
-    private ServiceFactory(){}
+    private ServiceFactory() {
+    }
 
-    public static ServiceFactory getInstance(){
+    public static ServiceFactory getInstance() {
         return factory;
     }
 
-    public ClientService getClientService(){
+    public ClientService getClientService() {
         return clientService;
     }
 
-    public HotelService getHotelService(){
+    public HotelService getHotelService() {
         return hotelService;
     }
 

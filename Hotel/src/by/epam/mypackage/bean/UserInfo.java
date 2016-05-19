@@ -10,12 +10,12 @@ public class UserInfo {
     private String userPhone;
 
     public UserInfo(int userId, String userFirstName, String userLastName,
-                    String userNumPassport, String userAdress, String userPhone) {
+                    String userNumPassport, String userAddress, String userPhone) {
         this.userId = userId;
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.userNumPassport = userNumPassport;
-        this.userAddress = userAdress;
+        this.userAddress = userAddress;
         this.userPhone = userPhone;
     }
 

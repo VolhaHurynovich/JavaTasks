@@ -2,13 +2,13 @@ package by.epam.mypackage.dao;
 
 import by.epam.mypackage.dao.impl.SQLAdminDao;
 import by.epam.mypackage.dao.impl.SQLCommonDao;
-import by.epam.mypackage.dao.impl.SQLUserDao;
+import by.epam.mypackage.dao.impl.SQLCustomerDao;
 
 public class DAOFactory {
     private static final DAOFactory factory = new DAOFactory();
 
     private final CommonDao commonDao = new SQLCommonDao();
-    private final UserDao userDao = new SQLUserDao();
+    private final CustomerDao userDao = new SQLCustomerDao();
     private final AdminDao adminDao = new SQLAdminDao();
 
     private DAOFactory() {
@@ -19,12 +19,11 @@ public class DAOFactory {
         return factory;
     }
 
-
     public CommonDao getCommonDao() {
         return commonDao;
     }
 
-    public UserDao getUserDao() {
+    public CustomerDao getUserDao() {
         return userDao;
     }
 

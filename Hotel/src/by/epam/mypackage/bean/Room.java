@@ -2,21 +2,24 @@ package by.epam.mypackage.bean;
 
 public class Room {
     private int roomId;
+    private String roomNumber;
     private String roomType;
     private int roomNumOfAdult;
     private int roomNumOfChild;
     private double roomPriceDay;
     private String roomStatus;
 
-    public Room(int roomId, String roomType, int roomNumOfAdult, int roomNumOfChild,
-                double roomPriceDay, String roomStatus) {
+    public Room(int roomId, String roomNumber, String roomType,
+                int roomNumOfAdult, int roomNumOfChild, double roomPriceDay, String roomStatus) {
         this.roomId = roomId;
+        this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.roomNumOfAdult = roomNumOfAdult;
         this.roomNumOfChild = roomNumOfChild;
         this.roomPriceDay = roomPriceDay;
         this.roomStatus = roomStatus;
     }
+
 
     public int getRoomId() {
         return roomId;
@@ -64,5 +67,13 @@ public class Room {
 
     public void setRoomStatus(String roomStatus) {
         this.roomStatus = roomStatus;
+    }
+
+    public String getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
     }
 }
