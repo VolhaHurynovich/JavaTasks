@@ -1,15 +1,15 @@
 package by.epam.mypackage.start;
 
 
-import by.epam.mypackage.bean.User;
+
+import by.epam.mypackage.bean.Room;
 import by.epam.mypackage.connectionpool.ConnectionPool;
 import by.epam.mypackage.connectionpool.ConnectionPoolException;
 import by.epam.mypackage.dao.DAOException;
 import by.epam.mypackage.dao.DAOFactory;
-import by.epam.mypackage.dao.impl.SQLCommonDao;
 
-import java.sql.Connection;
-import java.sql.Statement;
+import java.util.Date;
+import java.util.List;
 
 
 public class Runner {
@@ -24,7 +24,14 @@ public class Runner {
       //  factory.getCustomerDao().editUserInfo(userId, "A2244", "BBB4", "MP11111144", "Minsk", "ggg@uu.uu", "+375294444444444");
         boolean forHelp;
       //  forHelp= factory.getAdminDao().editStatusNameToAdmin(userId);
-        forHelp = factory.getAdminDao().removeUser(1);
+      //  forHelp = factory.getAdminDao().removeUser(482);
+
+        Room room = new Room("572","Family room",2,2,200.00,"Available");
+     //   forHelp= factory.getAdminDao().addRoom(room);
+
+     //   forHelp= factory.getAdminDao().removeRoom(806);
+
+        List<Room> rooms = factory.getCustomerDao().searchAvailableRooms(new Date("2016/06/01"),new Date("2016/06/01"));
 
         connectionPool.dispose();
 

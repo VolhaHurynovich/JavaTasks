@@ -7,6 +7,7 @@ import by.epam.mypackage.dao.DAOException;
 import by.epam.mypackage.dao.CustomerDao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -39,10 +40,38 @@ public class SQLCustomerDao implements CustomerDao {
         return true;
     }
 
-    @Override
-    public List<Room> findAvailableRooms(Date dateIn, Date dateOut) throws DAOException {
-        // TODO Auto-generated method stub
-        return new ArrayList<Room>();
+    public List<Room> searchAvailableRooms(Date dateIn, Date dateOut) throws DAOException {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet res = null;
+
+        try {
+            connection = connectionPool.takeConnection();
+            statement = connection.createStatement();
+            String query = "SELECT * FROM HOTEL_NEW.rooms WHERE  roomId NOT IN (SELECT roomId FROM HOTEL_NEW.reservation WHERE dateIn <= '" + dateIn + "' AND dateOut >= '" + dateOut + "');";
+            res = statement.executeQuery(query);
+            List<Room> rooms = new ArrayList<Room>();
+            while (res.next()) {
+                Room room = new Room();
+                room.setRoomNumber(res.getString(2));
+                room.setRoomType(res.getString(3));
+                room.setRoomNumOfAdult(res.getInt(4));
+                room.setRoomNumOfChild(res.getInt(5));
+                room.setRoomPriceDay(res.getDouble(6));
+                room.setRoomStatus(res.getString(7));
+
+                rooms.add(room);
+            }
+            return (rooms);
+        } catch (ConnectionPoolException | SQLException e) {
+            throw new DAOException("Exception in searchAvailableRooms", e);
+        } finally {
+            try {
+                connectionPool.closeConnection(connection, statement, res);
+            } catch (ConnectionPoolException e) {
+                throw new DAOException("ConnectionPoolException in searchAvailableRooms", e);
+            }
+        }
     }
 
     @Override

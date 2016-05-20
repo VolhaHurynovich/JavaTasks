@@ -32,7 +32,7 @@ public class SQLAdminDao implements AdminDao {
             return false;
         } catch (ConnectionPoolException e) {
             return false;
-        }finally {
+        } finally {
             try {
                 connectionPool.closeConnection(connection, statement);
             } catch (ConnectionPoolException e) {
@@ -59,7 +59,7 @@ public class SQLAdminDao implements AdminDao {
             connection.commit();
         } catch (SQLException | ConnectionPoolException e) {
             try {
-                connection.rollback();
+                connection.rollback(svpt);
             } catch (SQLException e1) {
                 throw new DAOException("SQLException in removeUser", e1);
             }
@@ -69,7 +69,7 @@ public class SQLAdminDao implements AdminDao {
                 connectionPool.closeConnection(connection, statement);
                 connection.setAutoCommit(true);
             } catch (SQLException | ConnectionPoolException e) {
-                throw new DAOException("SQLException in removeUser", e);
+                throw new DAOException("Exception in removeUser", e);
             }
         }
         return true;
@@ -77,15 +77,46 @@ public class SQLAdminDao implements AdminDao {
 
     @Override
     public boolean addRoom(Room room) throws DAOException {
-        // TODO Auto-generated method stub
-        return false;
+        Connection connection = null;
+        Statement statement = null;
+        try {
+            connection = connectionPool.takeConnection();
+            statement = connection.createStatement();
+            String query = "INSERT INTO HOTEL_NEW.Rooms(roomNumber,roomType,roomNumOfAdult,roomNumOfChild,roomPriceDay,roomStatus) VALUES ('"
+                    + room.getRoomNumber() + "','" + room.getRoomType() + "'," + room.getRoomNumOfAdult() +
+                    "," + room.getRoomNumOfChild() + "," + room.getRoomPriceDay() + ",'" + room.getRoomStatus() + "');";
+            statement.executeUpdate(query);
+        } catch (SQLException | ConnectionPoolException e) {
+            return false;
+        } finally {
+            try {
+                connectionPool.closeConnection(connection, statement);
+            } catch (ConnectionPoolException e) {
+                throw new DAOException("ConnectionPoolException in addRoom", e);
+            }
+        }
+        return true;
     }
 
     @Override
     public boolean removeRoom(int roomId) throws DAOException {
-
-
-        return false;
+        Connection connection = null;
+        Statement statement = null;
+        try {
+            connection = connectionPool.takeConnection();
+            statement = connection.createStatement();
+            String query = "DELETE FROM HOTEL_NEW.rooms where roomId =" + roomId + ";";
+            statement.executeUpdate(query);
+        } catch (SQLException | ConnectionPoolException e) {
+            return false;
+        } finally {
+            try {
+                connectionPool.closeConnection(connection, statement);
+            } catch (ConnectionPoolException e) {
+                throw new DAOException("ConnectionPoolException in addRoom", e);
+            }
+        }
+        return true;
     }
 
 }

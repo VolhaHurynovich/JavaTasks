@@ -1,7 +1,6 @@
 package by.epam.mypackage.bean;
 
 public class Room {
-    private int roomId;
     private String roomNumber;
     private String roomType;
     private int roomNumOfAdult;
@@ -9,9 +8,8 @@ public class Room {
     private double roomPriceDay;
     private String roomStatus;
 
-    public Room(int roomId, String roomNumber, String roomType,
+    public Room(String roomNumber, String roomType,
                 int roomNumOfAdult, int roomNumOfChild, double roomPriceDay, String roomStatus) {
-        this.roomId = roomId;
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.roomNumOfAdult = roomNumOfAdult;
@@ -19,14 +17,7 @@ public class Room {
         this.roomPriceDay = roomPriceDay;
         this.roomStatus = roomStatus;
     }
-
-
-    public int getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
+    public Room() {
     }
 
     public String getRoomType() {

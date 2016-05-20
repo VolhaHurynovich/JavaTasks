@@ -56,11 +56,11 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public List<Room> findAvailableRooms(Date dateIn, Date dateOut) throws ServiceException {
+    public List<Room> searchAvailableRooms(Date dateIn, Date dateOut) throws ServiceException {
         try {
-            return (customerDao.findAvailableRooms(dateIn, dateOut));
+            return (customerDao.searchAvailableRooms(dateIn, dateOut));
         } catch (DAOException e) {
-            throw new ServiceException("Exception in findAvailableRooms", e);
+            throw new ServiceException("Exception in searchAvailableRooms", e);
         }
     }
 
