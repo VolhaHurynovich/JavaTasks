@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static by.epam.mypackage.bean.Reservation.ROOM_STATUS_RES_UNPAID;
+
 
 public class SQLCustomerDao implements CustomerDao {
 
@@ -76,7 +78,22 @@ public class SQLCustomerDao implements CustomerDao {
 
     @Override
     public boolean reservationRoom(int userId, int roomId, Date dateIn, Date dateOut) throws DAOException {
-        // TODO Auto-generated method stub
-        return false;
+        Connection connection = null;
+        Statement statement = null;
+        try {
+            connection = connectionPool.takeConnection();
+            statement = connection.createStatement();
+            String query = "INSERT INTO HOTEL_NEW.reservation (userId, roomId, dateIn, dateOut,resStatus) VALUES (" + userId + "," + roomId + ",'"+ dateIn+"', '"+ dateOut + "','" + ROOM_STATUS_RES_UNPAID  +"');";
+            statement.executeUpdate(query);
+        } catch (ConnectionPoolException | SQLException e) {
+            return false;
+        } finally {
+            try {
+                connectionPool.closeConnection(connection, statement);
+            } catch (ConnectionPoolException e) {
+                throw new DAOException("Exception in reservationRoom", e);
+            }
+        }
+        return true;
     }
 }

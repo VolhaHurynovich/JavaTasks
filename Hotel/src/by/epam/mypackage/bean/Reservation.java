@@ -3,6 +3,8 @@ package by.epam.mypackage.bean;
 import java.util.Date;
 
 public class Reservation {
+    public static final String ROOM_STATUS_RES_PAID = "paid";
+    public static final String ROOM_STATUS_RES_UNPAID = "unpaid";
     private int resId;
     private int userId;
     private int roomId;

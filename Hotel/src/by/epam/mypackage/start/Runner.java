@@ -31,8 +31,8 @@ public class Runner {
 
      //   forHelp= factory.getAdminDao().removeRoom(806);
 
-        List<Room> rooms = factory.getCustomerDao().searchAvailableRooms(new Date("2016/06/01"),new Date("2016/06/01"));
-
+      //  List<Room> rooms = factory.getCustomerDao().searchAvailableRooms(new Date("2016/06/01"),new Date("2016/06/01"));
+        forHelp= factory.getCustomerDao().reservationRoom(3,809,new Date("2016/09/01"),new Date("2016/09/01"));
         connectionPool.dispose();
 
 
