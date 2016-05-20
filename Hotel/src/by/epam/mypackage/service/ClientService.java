@@ -10,11 +10,8 @@ import java.util.List;
 public interface ClientService {
     User authorization(String login, String password) throws ServiceException;
 
-    int registration(String userName, String userPassword,  String userFirstName,
-                     String userLastName, String userNumPassport, String userAddress, String userPhone) throws ServiceException;
+    int registration(String userName, String userPassword) throws ServiceException;
 
-    List<Room> findAvailableRooms(Date dateIn, Date dateOut) throws ServiceException;
 
-    boolean reservationRoom(int userId, int roomId, Date dateIn, Date dateOut) throws ServiceException;
 
 }

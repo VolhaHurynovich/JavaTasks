@@ -8,7 +8,7 @@ public class DAOFactory {
     private static final DAOFactory factory = new DAOFactory();
 
     private final CommonDao commonDao = new SQLCommonDao();
-    private final CustomerDao userDao = new SQLCustomerDao();
+    private final CustomerDao customerDao = new SQLCustomerDao();
     private final AdminDao adminDao = new SQLAdminDao();
 
     private DAOFactory() {
@@ -23,8 +23,8 @@ public class DAOFactory {
         return commonDao;
     }
 
-    public CustomerDao getUserDao() {
-        return userDao;
+    public CustomerDao getCustomerDao() {
+        return customerDao;
     }
 
     public AdminDao getAdminDao() {

@@ -1,16 +1,78 @@
 package by.epam.mypackage.dao.impl;
 
 import by.epam.mypackage.bean.Room;
+import by.epam.mypackage.connectionpool.ConnectionPool;
+import by.epam.mypackage.connectionpool.ConnectionPoolException;
 import by.epam.mypackage.dao.AdminDao;
 import by.epam.mypackage.dao.DAOException;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Savepoint;
+import java.sql.Statement;
+
+import static by.epam.mypackage.bean.User.USER_STATUS_NAME_ADMIN;
+
+
 public class SQLAdminDao implements AdminDao {
-    public static final String USER_STATUS_NAME_ADMIN = "admin";
+
+
+    private ConnectionPool connectionPool = ConnectionPool.getInstance();
+
+    @Override
+    public boolean editStatusNameToAdmin(int userId) throws DAOException {
+        Connection connection = null;
+        Statement statement = null;
+        try {
+            connection = connectionPool.takeConnection();
+            statement = connection.createStatement();
+            String query = "UPDATE HOTEL_NEW.Users SET userStatusName= '" + USER_STATUS_NAME_ADMIN + "' where userId = " + userId + ";";
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            return false;
+        } catch (ConnectionPoolException e) {
+            return false;
+        }finally {
+            try {
+                connectionPool.closeConnection(connection, statement);
+            } catch (ConnectionPoolException e) {
+                throw new DAOException("ConnectionPoolException in editStatusNameToAdmin", e);
+            }
+        }
+        return true;
+    }
 
     @Override
     public boolean removeUser(int userId) throws DAOException {
-        // TODO Auto-generated method stub
-        return false;
+        Connection connection = null;
+        Statement statement = null;
+        Savepoint svpt = null;
+        try {
+            connection = connectionPool.takeConnection();
+            connection.setAutoCommit(false);
+            statement = connection.createStatement();
+            svpt = connection.setSavepoint();
+            String query = "DELETE FROM HOTEL_NEW.UsersInfo where userId =" + userId + ";";
+            statement.executeUpdate(query);
+            query = "DELETE FROM HOTEL_NEW.Users where userId =" + userId + ";";
+            statement.executeUpdate(query);
+            connection.commit();
+        } catch (SQLException | ConnectionPoolException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException e1) {
+                throw new DAOException("SQLException in removeUser", e1);
+            }
+            return false;
+        } finally {
+            try {
+                connectionPool.closeConnection(connection, statement);
+                connection.setAutoCommit(true);
+            } catch (SQLException | ConnectionPoolException e) {
+                throw new DAOException("SQLException in removeUser", e);
+            }
+        }
+        return true;
     }
 
     @Override

@@ -2,6 +2,8 @@ package by.epam.mypackage.bean;
 
 
 public class User {
+    public static final String USER_STATUS_NAME_CUSTOMER = "customer";
+    public static final String USER_STATUS_NAME_ADMIN = "admin";
     private int userId;
     private String userName;
     private String userPassword;

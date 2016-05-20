@@ -7,5 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 public interface CustomerDao {
-    boolean editUserInfo(String login, String password, UserInfo userInfo) throws DAOException;
+    boolean editUserInfo(int userId,  String userFirstName, String userLastName,
+                         String userNumPassport, String userAddress,String userEmail, String userPhone) throws DAOException;
+    List<Room> findAvailableRooms(Date dateIn, Date dateOut) throws DAOException;
+    boolean reservationRoom(int userId, int roomId, Date dateIn, Date dateOut) throws DAOException;
 }

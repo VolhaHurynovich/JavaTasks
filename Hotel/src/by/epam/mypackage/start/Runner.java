@@ -19,8 +19,13 @@ public class Runner {
         connectionPool.initPoolData();
 
         DAOFactory factory = DAOFactory.getInstance();
-        User user = factory.getCommonDao().authorization("customer20", "22220");
-        int userId = factory.getCommonDao().registration("customer250", "55550", "AAA", "BBBB", "MP111111", "Minsk", "+375294444444444");
+     //   User user = factory.getCommonDao().authorization("c24421", "222244");
+     //   int userId = factory.getCommonDao().registration("c24421", "222244");
+      //  factory.getCustomerDao().editUserInfo(userId, "A2244", "BBB4", "MP11111144", "Minsk", "ggg@uu.uu", "+375294444444444");
+        boolean forHelp;
+      //  forHelp= factory.getAdminDao().editStatusNameToAdmin(userId);
+        forHelp = factory.getAdminDao().removeUser(1);
+
         connectionPool.dispose();
 
 
