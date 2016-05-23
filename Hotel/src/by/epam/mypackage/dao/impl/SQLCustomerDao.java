@@ -50,7 +50,7 @@ public class SQLCustomerDao implements CustomerDao {
         try {
             connection = connectionPool.takeConnection();
             statement = connection.createStatement();
-            String query = "SELECT * FROM HOTEL_NEW.rooms WHERE  roomId NOT IN (SELECT roomId FROM HOTEL_NEW.reservation WHERE dateIn <= '" + dateIn + "' AND dateOut >= '" + dateOut + "');";
+            String query = "SELECT * FROM HOTEL_NEW.rooms WHERE  roomId NOT IN (SELECT roomId FROM HOTEL_NEW.reservation WHERE dateIn <= '" + new java.sql.Date(dateIn.getTime()) + "' AND dateOut >= '" + new java.sql.Date(dateOut.getTime()) + "');";
             res = statement.executeQuery(query);
             List<Room> rooms = new ArrayList<Room>();
             while (res.next()) {
@@ -83,7 +83,7 @@ public class SQLCustomerDao implements CustomerDao {
         try {
             connection = connectionPool.takeConnection();
             statement = connection.createStatement();
-            String query = "INSERT INTO HOTEL_NEW.reservation (userId, roomId, dateIn, dateOut,resStatus) VALUES (" + userId + "," + roomId + ",'"+ dateIn+"', '"+ dateOut + "','" + ROOM_STATUS_RES_UNPAID  +"');";
+            String query = "INSERT INTO HOTEL_NEW.reservation (userId, roomId, dateIn, dateOut,resStatus) VALUES (" + userId + "," + roomId + ",'"+ new java.sql.Date(dateIn.getTime())+"','"+ new java.sql.Date(dateOut.getTime()) + "','" + ROOM_STATUS_RES_UNPAID  +"');";
             statement.executeUpdate(query);
         } catch (ConnectionPoolException | SQLException e) {
             return false;

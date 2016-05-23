@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS Reservation (
     resStatus		VARCHAR(20) DEFAULT 'unpaid',
 	
 	CONSTRAINT resStatus_constrain CHECK (resStatus IN ('paid', 'unpaid')),
-	CONSTRAINT dateInOut_constrain CHECK (dateOut > dateIn),
+	CONSTRAINT dateInOut_constrain CHECK (dateOut >= dateIn),
 	
 	FOREIGN KEY (userId) REFERENCES Users(userId),
 	FOREIGN KEY (roomId) REFERENCES Rooms(roomId),
