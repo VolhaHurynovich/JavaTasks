@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import test.pages.LoginPage;
-import test.pages.MainPage;
+
 
 
 public class Steps {

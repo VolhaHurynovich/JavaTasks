@@ -8,9 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage extends AbstractPage {
     private final String BASE_URL = "https://www.gmail.com/";
 
-    @FindBy(id = "account-chooser-add-account")
-    private WebElement addAccount;
-
     @FindBy(id = "Email")
     private WebElement inputLogin;
 
@@ -36,7 +33,6 @@ public class LoginPage extends AbstractPage {
     }
 
     public void login(String username, String password) {
-     //   addAccount.click();
         inputLogin.sendKeys(username);
         nextButton.click();
         inputPassword.sendKeys(password);
