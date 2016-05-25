@@ -1,7 +1,5 @@
 package by.epam.mypackage.start;
 
-
-
 import by.epam.mypackage.bean.Room;
 import by.epam.mypackage.connectionpool.ConnectionPool;
 import by.epam.mypackage.connectionpool.ConnectionPoolException;
@@ -34,7 +32,6 @@ public class Runner {
         List<Room> rooms = factory.getCustomerDao().searchAvailableRooms(new Date("2016/06/01"),new Date("2016/06/01"));
       //  forHelp= factory.getCustomerDao().reservationRoom(43,805,new Date("2016/10/01"),new Date("2016/10/07"));
         connectionPool.dispose();
-
 
     }
 
