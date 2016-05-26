@@ -1,13 +1,13 @@
 package test.res;
 
 public class LoginsPasswords {
-    private static final String USERNAME1 = "test1user123456";
+    private static final String USERNAME1 = "test1user123456@gmail.com";
     private static final String PASSWORD1 = "test123456user";
 
-    private static final String USERNAME2 = "Kapatsevich.userone";
+    private static final String USERNAME2 = "Kapatsevich.userone@gmail.com";
     private static final String PASSWORD2 = "nibumbum";
 
-    private static final String USERNAME3 = "Kapatsevich.usertwo";
+    private static final String USERNAME3 = "Kapatsevich.usertwo@gmail.com";
     private static final String PASSWORD3 = "nibumbum";
 
 

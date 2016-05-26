@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage extends AbstractPage {
     private final String BASE_URL = "https://www.gmail.com/";
 
-    @FindBy(id = "account-chooser-add-account")
+    @FindBy(id = "account-chooser-link")
     private WebElement chooserAccount;
 
     @FindBy(id = "Email")
@@ -23,6 +23,9 @@ public class LoginPage extends AbstractPage {
     @FindBy(id = "signIn")
     private WebElement signInButton;
 
+    @FindBy(id = "PersistentCookie")
+    private WebElement persistentcookieButton;
+
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -36,14 +39,12 @@ public class LoginPage extends AbstractPage {
     }
 
     public void login(String username, String password) {
-        if (!(chooserAccount == null)) {
-            chooserAccount.click();
-        }
         inputLogin.sendKeys(username);
         nextButton.click();
         inputPassword.sendKeys(password);
+        if (persistentcookieButton.isSelected()){
+            persistentcookieButton.click();
+        }
         signInButton.click();
     }
-
-
 }
