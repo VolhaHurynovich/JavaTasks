@@ -7,19 +7,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import test.pages.LoginPage;
 import test.pages.MainPage;
+import test.pages.SpamPage;
 
 
 public class Steps {
     private WebDriver driver;
     MainPage mainPage;
     LoginPage loginPage;
+    SpamPage spamPage;
 
     public void initBrowser() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
         mainPage = new MainPage(driver);
         loginPage = new LoginPage(driver);
+        spamPage = new SpamPage(driver);
+
     }
 
     public void closeDriver() {
@@ -45,9 +50,22 @@ public class Steps {
         mainPage.clickOnButtonLogOut();
     }
 
-    public void markLetterAsSpam(String username, String subjectLetter) {
+    public void markLetterAsSpam(String username, String subjectLetter, String letterText) {
         mainPage.openPage();
-     //   mainPage.clickOnLetterFromUser(username,subjectLetter);
+        mainPage.clickOnLetterFromUser(username,subjectLetter,letterText);
+        mainPage.clickOnSpamButton();
+    }
+
+    public void showSpam() {
+        mainPage.openPage();
+        mainPage.clickOnLessButton();
+        mainPage.clickOnShowSpamButton();
+
+    }
+
+    public String findLetterOnPage(String username, String subjectLetter, String letterText) {
+        spamPage.openPage();
+        return  spamPage.findLetter(username, subjectLetter, letterText);
     }
 
 }

@@ -1,10 +1,13 @@
 package test.pages;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class MainPage extends AbstractPage {
@@ -31,6 +34,16 @@ public class MainPage extends AbstractPage {
     @FindBy(xpath = "//a[@id='gb_71']")
     private WebElement buttonLogOut;
 
+    @FindBy(xpath = "//div[@title='Report spam']")
+    private WebElement buttonSpam;
+
+    @FindBy(xpath = "//span[@role='button']/span[@class='ait']")
+    private WebElement buttonLess;
+
+    @FindBy(xpath = " //a[contains(text(),'Spam')]")
+    private WebElement buttonShowSpam;
+
+
 
 
 
@@ -45,28 +58,30 @@ public class MainPage extends AbstractPage {
         System.out.println("Google Main page opened");
     }
 
-    public void clickOnButtonCreateLetter(){
+    public void clickOnButtonCreateLetter() {
 
         buttonCreateLetter.click();
     }
 
-    public void createLetter(String usernameTo, String letterSubject, String letter){
+    public void createLetter(String usernameTo, String letterSubject, String letter) {
         areaToWhom.sendKeys(usernameTo);
         areaForSubject.sendKeys(letterSubject);
         areaForLetter.sendKeys(letter);
     }
 
-    public void clickOnButtonSendLetter(){
+    public void clickOnButtonSendLetter() {
         buttonSendLetter.click();
     }
-    public void clickOnButtonProfile(){
+
+    public void clickOnButtonProfile() {
         if (isAlertPresent()) {
             Alert alert = driver.switchTo().alert();
             alert.accept();
         }
         buttonProfile.click();
     }
-    public void clickOnButtonLogOut(){
+
+    public void clickOnButtonLogOut() {
         buttonLogOut.click();
         if (isAlertPresent()) {
             Alert alert = driver.switchTo().alert();
@@ -74,12 +89,31 @@ public class MainPage extends AbstractPage {
         }
     }
 
+    public void clickOnLetterFromUser(String username, String subjectLetter, String letterText) {
+        WebElement webElement = driver.findElement(By.xpath("//div[contains(text(),'" + subjectLetter + "')]/../div/span[@email='" + username + "']/../../..//div[@role='checkbox']"));
+        webElement.click();
+    }
+
+    public void clickOnSpamButton() {
+        buttonSpam.click();
+    }
+
+    public void clickOnLessButton() {
+        buttonLess.click();
+    }
+
+    public void clickOnShowSpamButton() {
+        buttonShowSpam.click();
+    }
+
+
+
+
     public boolean isAlertPresent() {
         try {
             driver.switchTo().alert();
             return true;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return false;
         }
     }
