@@ -19,6 +19,7 @@ public class SpamGmailTest {
 
     @Test
     public void oneCanLoginGmail() {
+
         steps.loginGmail(LoginsPasswords.getUSERNAME2(), LoginsPasswords.getPASSWORD2());
         steps.markLetterAsNotSpam(LoginsPasswords.getUSERNAME1());
         steps.logOut();

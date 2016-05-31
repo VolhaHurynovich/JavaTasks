@@ -3,6 +3,7 @@ package test.steps;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import test.pages.LoginPage;
@@ -70,9 +71,13 @@ public class Steps {
 
 
     public void markLetterAsNotSpam(String username) {
-        spamPage.openPage();
-        spamPage.clickOnLettersFromUser(username);
-        spamPage.clickOnNotSpamButton();
+        try {
+            spamPage.openPage();
+            spamPage.clickOnLettersFromUser(username);
+            spamPage.clickOnNotSpamButton();
+        } catch (ElementNotVisibleException e){
+
+        }
     }
 
 }
