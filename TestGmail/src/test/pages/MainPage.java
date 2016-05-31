@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class MainPage extends AbstractPage {
@@ -43,10 +41,6 @@ public class MainPage extends AbstractPage {
     @FindBy(xpath = " //a[contains(text(),'Spam')]")
     private WebElement buttonShowSpam;
 
-
-
-
-
     public MainPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
@@ -59,7 +53,6 @@ public class MainPage extends AbstractPage {
     }
 
     public void clickOnButtonCreateLetter() {
-
         buttonCreateLetter.click();
     }
 
@@ -105,7 +98,6 @@ public class MainPage extends AbstractPage {
     public void clickOnShowSpamButton() {
         buttonShowSpam.click();
     }
-
 
 
 

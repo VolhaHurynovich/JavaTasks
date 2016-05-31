@@ -40,8 +40,6 @@ public class SpamGmailTest {
         steps.showSpam();
         Assert.assertEquals(LoginsPasswords.getUSERNAME1(), steps.findLetterOnPage(LoginsPasswords.getUSERNAME1(), subjectLetter));
 
-
-
     }
 
     @AfterMethod(description = "Stop Browser")
