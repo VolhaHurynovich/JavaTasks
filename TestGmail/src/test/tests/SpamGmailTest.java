@@ -19,13 +19,17 @@ public class SpamGmailTest {
 
     @Test
     public void oneCanLoginGmail() {
+        steps.loginGmail(LoginsPasswords.getUSERNAME2(), LoginsPasswords.getPASSWORD2());
+        steps.markLetterAsNotSpam(LoginsPasswords.getUSERNAME1());
+        steps.logOut();
+
         steps.loginGmail(LoginsPasswords.getUSERNAME1(), LoginsPasswords.getPASSWORD1());
         String subjectLetter = "Letter subject from user1 - " + Utils.getRandomString(3);
         String textLetter = "Letter  from user1 - " + Utils.getRandomString(5);
         steps.sendEmail(LoginsPasswords.getUSERNAME2(), subjectLetter, textLetter);
         steps.logOut();
         steps.loginGmail(LoginsPasswords.getUSERNAME2(), LoginsPasswords.getPASSWORD2());
-        steps.markLetterAsSpam(LoginsPasswords.getUSERNAME1(), subjectLetter, textLetter);
+        steps.markLetterAsSpam(LoginsPasswords.getUSERNAME1(), subjectLetter);
         steps.logOut();
         steps.loginGmail(LoginsPasswords.getUSERNAME1(), LoginsPasswords.getPASSWORD1());
         subjectLetter = subjectLetter + "  " + 2;
@@ -34,13 +38,15 @@ public class SpamGmailTest {
         steps.logOut();
         steps.loginGmail(LoginsPasswords.getUSERNAME2(), LoginsPasswords.getPASSWORD2());
         steps.showSpam();
-        Assert.assertEquals(LoginsPasswords.getUSERNAME1(),steps.findLetterOnPage(LoginsPasswords.getUSERNAME1(), subjectLetter, textLetter));
+        Assert.assertEquals(LoginsPasswords.getUSERNAME1(), steps.findLetterOnPage(LoginsPasswords.getUSERNAME1(), subjectLetter));
+
+
 
     }
 
     @AfterMethod(description = "Stop Browser")
     public void stopBrowser() {
-        //   steps.closeDriver();
+           steps.closeDriver();
     }
 
 }

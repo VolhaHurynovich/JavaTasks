@@ -18,9 +18,9 @@ public class Steps {
 
     public void initBrowser() {
         driver = new FirefoxDriver();
-        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(5, TimeUnit.SECONDS);
         mainPage = new MainPage(driver);
         loginPage = new LoginPage(driver);
         spamPage = new SpamPage(driver);
@@ -45,14 +45,14 @@ public class Steps {
     }
 
     public void logOut() {
-        mainPage.openPage();
+       // mainPage.openPage();
         mainPage.clickOnButtonProfile();
         mainPage.clickOnButtonLogOut();
     }
 
-    public void markLetterAsSpam(String username, String subjectLetter, String letterText) {
+    public void markLetterAsSpam(String username, String subjectLetter) {
         mainPage.openPage();
-        mainPage.clickOnLetterFromUser(username,subjectLetter,letterText);
+        mainPage.clickOnLetterFromUser(username,subjectLetter);
         mainPage.clickOnSpamButton();
     }
 
@@ -63,9 +63,16 @@ public class Steps {
 
     }
 
-    public String findLetterOnPage(String username, String subjectLetter, String letterText) {
+    public String findLetterOnPage(String username, String subjectLetter) {
         spamPage.openPage();
-        return  spamPage.findLetter(username, subjectLetter, letterText);
+        return  spamPage.findLetter(username, subjectLetter);
+    }
+
+
+    public void markLetterAsNotSpam(String username) {
+        spamPage.openPage();
+        spamPage.clickOnLettersFromUser(username);
+        spamPage.clickOnNotSpamButton();
     }
 
 }

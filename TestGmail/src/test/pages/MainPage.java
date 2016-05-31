@@ -89,7 +89,7 @@ public class MainPage extends AbstractPage {
         }
     }
 
-    public void clickOnLetterFromUser(String username, String subjectLetter, String letterText) {
+    public void clickOnLetterFromUser(String username, String subjectLetter) {
         WebElement webElement = driver.findElement(By.xpath("//div[contains(text(),'" + subjectLetter + "')]/../div/span[@email='" + username + "']/../../..//div[@role='checkbox']"));
         webElement.click();
     }
